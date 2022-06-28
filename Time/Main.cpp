@@ -5,7 +5,10 @@ int main()
 	Time current;
 	std::cout << current;
 
-	Time a(23, 50, 45);
+	Time a(1, 50, 45);
+	std::cout << a--;
+	a.Print();
+	
 
 	Time b;
 	b = a + 1200;
@@ -30,5 +33,4 @@ int main()
 	Time c;
 	std::cin >> c;
 	std::cout << c;
-
 }

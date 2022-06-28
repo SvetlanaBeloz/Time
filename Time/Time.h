@@ -18,7 +18,12 @@ public:
 	int GetSeconds() const;
 	void Print();
 
-	friend Time operator + (const Time& original, int sec);
+	Time& operator ++();
+	Time operator ++(int);
+	Time& operator --();
+	Time operator --(int);
+
+	friend Time operator+(const Time& original, int sec);
 	friend bool operator < (const Time& left, const Time& right);
 	friend bool operator > (const Time& left, const Time& right);
 	friend bool operator == (const Time& left, const Time& right);

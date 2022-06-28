@@ -66,7 +66,7 @@ void Time::Print()
 	std::cout << "Time is: " << hour << " hours, " << minutes << " minutes, " << seconds << " seconds.\n";
 }
 
-Time operator + (const Time& original, int sec)
+Time operator +(const Time& original, int sec)
 {
 	int time = original.hour * 3600 + original.minutes * 60 + original.seconds + sec;
 	int hour = time / 3600;
@@ -129,4 +129,37 @@ std::ostream& operator << (std::ostream& os, const Time& original)
 	return os;
 }
 
+Time& Time::operator ++()
+{
+	if (hour == 23)
+		hour = 0;
+	else hour++;
+	return *this;
+}
+
+Time Time::operator ++(int)
+{
+	Time copy = *this;
+	if (hour == 23)
+		hour = 0;
+	else hour++;
+	return copy;
+}
+
+Time& Time::operator --()
+{
+	if (hour == 0)
+		hour = 23;
+	else hour--;
+	return *this;
+}
+
+Time Time::operator --(int)
+{
+	Time copy = *this;
+	if (hour == 0)
+		hour = 23;
+	else hour--;
+	return copy;
+}
 
